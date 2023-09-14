@@ -52,4 +52,5 @@ public class ZugTestProg {
             System.out.println("Probleme beim Beladen des Zuges: Leistung zu gering!");
         }
     }
+
 }
