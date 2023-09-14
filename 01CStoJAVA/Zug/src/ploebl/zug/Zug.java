@@ -1,6 +1,7 @@
 package ploebl.zug;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,6 @@ public class Zug {
     private LocalDateTime abfahrt;
     private Lokomotive lok;
     private List<Waggon> waggons;
-    private double gesamtGewicht;           // calc
-    private double gesamtGewichtWaggons;    // calc
 
     public Zug(int zugNr, LocalDateTime abfahrt, Lokomotive lok) {
         this.zugNr = zugNr;
@@ -37,15 +36,15 @@ public class Zug {
     }
 
     public double getGesamtGewicht() {
-        return gesamtGewicht;
+        return lok.getGewicht() + getGesamtGewichtWaggons();
     }
 
     public double getGesamtGewichtWaggons() {
-        gesamtGewichtWaggons = 0;
+        double sum = 0;
         for (Waggon waggon : waggons) {
-            gesamtGewichtWaggons += waggon.getGesamtGewicht();
+            sum += waggon.getGesamtGewicht();
         }
-        return gesamtGewichtWaggons;
+        return sum;
     }
 
     // Setter
@@ -63,8 +62,8 @@ public class Zug {
 
     // Weitere methoden
     public boolean anhaengen(Waggon neu) {
-        if (waggons.add(neu)) return true;
-        return false;
+        waggons.add(neu);
+        return true;
     }
 
     public Waggon getMaxWaggon() {
@@ -86,6 +85,39 @@ public class Zug {
         }
         return res.getGesamtGewicht();
     }
+
+    public double getStundenBisAbfahrt() {
+        LocalDateTime now = LocalDateTime.now();
+        long minutesUntilDeparture = now.until(abfahrt, ChronoUnit.MINUTES);
+        return minutesUntilDeparture / 60.0;
+    }
+
+    public void abkoppeln(Waggon w) {
+        if (waggons.contains(w)) {
+            waggons.remove(w);
+        }
+    }
+
+    public ArrayList<Waggon> abkoppeln(int i) {
+        ArrayList<Waggon> res = new ArrayList<>();
+        for (int j = 0; j < i; j++) {
+            res.set(j, waggons.get(j));
+        }
+        return res;
+    }
+
+    @Override
+    public String toString() {
+        return "Zug{" +
+                "zugNr=" + zugNr +
+                ", abfahrt=" + abfahrt +
+                ", lok=" + lok +
+                ", waggons=" + waggons.size() + " waggons" +
+                ", gesamtGewicht=" + getGesamtGewicht() +
+                ", stundenBisAbfahrt=" + getStundenBisAbfahrt() +
+                '}';
+    }
+
 
 
 }

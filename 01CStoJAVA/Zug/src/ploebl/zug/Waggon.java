@@ -4,8 +4,6 @@ public class Waggon {
     private int waggonNr;
     private double leergewicht;
     private double beladungsGewicht;
-    private double gesamtGewicht;
-
     public Waggon(int waggonNr, double leergewicht, double beladungsGewicht) {
         this.waggonNr = waggonNr;
         this.leergewicht = leergewicht;
@@ -26,25 +24,23 @@ public class Waggon {
     }
 
     public double getGesamtGewicht() {
-        gesamtGewicht = leergewicht + beladungsGewicht;
-        return gesamtGewicht;
+        return leergewicht + beladungsGewicht;
     }
 
     // Setter
     public void setWaggonNr(int waggonNr) {
+        BahnUtil.pruefePositiv(waggonNr);
         this.waggonNr = waggonNr;
     }
 
     public void setLeergewicht(double leergewicht) {
+        BahnUtil.pruefePositiv(leergewicht);
         this.leergewicht = leergewicht;
     }
 
     public void setBeladungsGewicht(double beladungsGewicht) {
+        BahnUtil.pruefePositiv(beladungsGewicht);
         this.beladungsGewicht = beladungsGewicht;
-    }
-
-    public void setGesamtGewicht(double gesamtGewicht) {
-        this.gesamtGewicht = gesamtGewicht;
     }
 
     @Override
