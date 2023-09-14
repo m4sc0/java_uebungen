@@ -45,7 +45,6 @@ public class Waggon {
 
     @Override
     public String toString() {
-        return "Waggon Nr: " + waggonNr + ", Leergewicht: " + leergewicht +
-                ", BeladungGewicht: " + beladungsGewicht + ", Gesamtgewicht: " + getGesamtGewicht();
+        return "Waggon [" + waggonNr + ", Leergewicht: " + String.format("%.1f", leergewicht) + " t, Beladungsgewicht: " + String.format("%.1f", beladungsGewicht) + " t]";
     }
 }

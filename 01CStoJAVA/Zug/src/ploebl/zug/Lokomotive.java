@@ -41,6 +41,7 @@ public class Lokomotive {
 
     @Override
     public String toString() {
-        return "Lokomotive: " + lokNr + " mit Leistung von " + leistung + "hp und Gewicht von " + gewicht + "kg.";
+        return "Lokomotive [" + lokNr + ", " + String.format("%.1f", leistung) + " kW, " + String.format("%.1f", gewicht) + " t]";
     }
+
 }

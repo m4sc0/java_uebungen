@@ -1,5 +1,6 @@
 package ploebl.zug;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class Zug {
     private Lokomotive lok;
     private List<Waggon> waggons;
 
-    public Zug(int zugNr, LocalDateTime abfahrt, Lokomotive lok) {
+    public Zug(int zugNr, Lokomotive lok, LocalDateTime abfahrt) {
         this.zugNr = zugNr;
         this.abfahrt = abfahrt;
         this.lok = lok;
@@ -62,8 +63,14 @@ public class Zug {
 
     // Weitere methoden
     public boolean anhaengen(Waggon neu) {
-        waggons.add(neu);
-        return true;
+        double value = this.getGesamtGewicht() * 1.1;
+        System.out.println(value);
+        if (value <= this.getLok().getLeistung()) {
+            waggons.add(neu);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public Waggon getMaxWaggon() {
@@ -88,14 +95,15 @@ public class Zug {
 
     public double getStundenBisAbfahrt() {
         LocalDateTime now = LocalDateTime.now();
-        long minutesUntilDeparture = now.until(abfahrt, ChronoUnit.MINUTES);
-        return minutesUntilDeparture / 60.0;
+        Duration dauer = Duration.between(now, this.abfahrt);
+        return dauer.toMinutes()/60.0;
     }
 
-    public void abkoppeln(Waggon w) {
+    public Waggon abkoppeln(Waggon w) {
         if (waggons.contains(w)) {
             waggons.remove(w);
         }
+        return w;
     }
 
     public ArrayList<Waggon> abkoppeln(int i) {
@@ -108,15 +116,25 @@ public class Zug {
 
     @Override
     public String toString() {
-        return "Zug{" +
-                "zugNr=" + zugNr +
-                ", abfahrt=" + abfahrt +
-                ", lok=" + lok +
-                ", waggons=" + waggons.size() + " waggons" +
-                ", gesamtGewicht=" + getGesamtGewicht() +
-                ", stundenBisAbfahrt=" + getStundenBisAbfahrt() +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Zugnr: ").append(zugNr).append(", Abfahrt: ")
+                .append(abfahrt.getDayOfWeek()).append(", ")
+                .append(abfahrt.getDayOfMonth()).append(". ")
+                .append(abfahrt.getMonth()).append(" ")
+                .append(abfahrt.getYear()).append(" um ")
+                .append(abfahrt.toLocalTime()).append("\n")
+                .append(lok.toString()).append("\n");
+
+        for (int i = 0; i < waggons.size(); i++) {
+            sb.append(i+1).append(".").append(waggons.get(i).toString()).append("\n");
+        }
+
+        sb.append("Gesamtgewicht: ").append(String.format("%.1f", getGesamtGewicht())).append(" t");
+
+        return sb.toString();
     }
+
 
 
 
