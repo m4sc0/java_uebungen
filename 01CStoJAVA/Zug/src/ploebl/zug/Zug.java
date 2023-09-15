@@ -84,13 +84,7 @@ public class Zug {
     }
 
     public double getMaxGewichtWaggon() {
-        Waggon res = new Waggon(0, 0,0);
-        for (Waggon waggon : waggons) {
-            if (waggon.getGesamtGewicht() > res.getGesamtGewicht()) {
-                res = waggon;
-            }
-        }
-        return res.getGesamtGewicht();
+        return getMaxWaggon().getGesamtGewicht();
     }
 
     public double getStundenBisAbfahrt() {
