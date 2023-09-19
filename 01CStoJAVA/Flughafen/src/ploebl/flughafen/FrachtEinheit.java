@@ -36,4 +36,9 @@ public class FrachtEinheit {
     public void setCode(int code) {
         this.code = code;
     }
+
+    @Override
+    public String toString() {
+        return "Frachteinheit-Code: " + getCode() + " Typ: " + getTyp() + " Weight: " + getWeight();
+    }
 }
