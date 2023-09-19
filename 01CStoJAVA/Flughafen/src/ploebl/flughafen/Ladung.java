@@ -10,20 +10,20 @@ public class Ladung {
     private double weight;
     private List<FrachtEinheit> einheiten;
 
-    public Ladung(int code) {
-        this.code = Main.generateRandom(10);
+    public Ladung() {
+        this.code = Main.generateRandom(9);
         this.einheiten = new ArrayList<>();
         this.weight = 0;
     }
 
     public void aufladen(FrachtEinheit neu) {
-        if (getAllWeights() + neu.getWeight() <= LIMIT)
+        if (getGesamtGewicht() + neu.getWeight() <= LIMIT)
             this.einheiten.add(neu);
         else
             throw new IllegalArgumentException("Weight of Frachteinheit is too much to handle!");
     }
 
-    public double getAllWeights() {
+    public double getGesamtGewicht() {
         double sum = 0;
         for (FrachtEinheit frachtEinheit : einheiten) {
             sum += frachtEinheit.getWeight();
@@ -36,11 +36,11 @@ public class Ladung {
     }
 
     public double getAverageWeight() {
-        return getAllWeights() / getCount();
+        return getGesamtGewicht() / getCount();
     }
 
     public boolean canBeLoaded(FrachtEinheit einheit) {
-        if (this.getAllWeights() + einheit.getWeight() <= LIMIT)
+        if (this.getGesamtGewicht() + einheit.getWeight() <= LIMIT)
             return true;
         return false;
     }

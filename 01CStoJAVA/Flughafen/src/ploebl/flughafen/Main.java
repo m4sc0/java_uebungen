@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Testing();
     }
 
     public static Type getType(double value) {
@@ -30,5 +30,14 @@ public class Main {
         int upperBound = (int) Math.pow(10, numDigits) - 1; // e.g., for 2 digits, upperBound = 99
 
         return lowerBound + random.nextInt(upperBound - lowerBound + 1);
+    }
+
+    public static void Testing() {
+        FrachtEinheit f1 = new FrachtEinheit(30);
+        FrachtEinheit f2 = new FrachtEinheit(50);
+        Ladung ladungToronto = new Ladung(); // Erstellt eine leere Ladung
+        ladungToronto.aufladen(f1); // Lädt f1 auf
+        ladungToronto.aufladen(f2); // Lädt f2 auf
+        System.out.println("Gesamtgewicht: "+ ladungToronto.getGesamtGewicht());
     }
 }
