@@ -104,6 +104,7 @@ public class Zug {
         ArrayList<Waggon> res = new ArrayList<>();
         for (int j = 0; j < i; j++) {
             res.set(j, waggons.get(j));
+            this.abkoppeln(waggons.get(j));
         }
         return res;
     }
