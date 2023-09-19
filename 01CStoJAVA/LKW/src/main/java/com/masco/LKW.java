@@ -11,11 +11,11 @@ public class LKW {
     private Fahrer fahrer;
     private ArrayList<BE> bes;
 
-    public LKW(String kennzeichen, int maxGewicht, Tour tour, Fahrer fahrer) {
+    public LKW(String kennzeichen, int maxGewicht) {
         this.kennzeichen = kennzeichen;
         this.maxGewicht = maxGewicht;
-        this.tour = tour;
-        this.fahrer = fahrer;
+        this.tour = null;
+        this.fahrer = null;
         this.bes = new ArrayList<>();
     }
 
@@ -57,22 +57,29 @@ public class LKW {
 
     @Override
     public String toString() {
+        if (tour == null) throw new IllegalArgumentException("Tour ist null");
+        if (fahrer == null) throw new IllegalArgumentException("Fahrer ist null");
         return "LKW (\"" + getKennzeichen() + "\", " + getLadungGewicht() + ")";
     }
 
     public ArrayList<BE> belade(ArrayList<BE> neueLadung) {
         neueLadung.sort(Comparator.comparing(BE::getGewicht).reversed());
-        ArrayList<BE> sorted = new ArrayList<>();
+
+        int currentWeight = getLadungGewicht();
+        ArrayList<BE> toRemove = new ArrayList<>();
 
         for (BE be : neueLadung) {
-            if (be.getGewicht() <= this.maxGewicht) {
-                sorted.add(be);
-                neueLadung.remove(be);
+            if (currentWeight + be.getGewicht() <= this.maxGewicht) {
+                this.bes.add(be);
+                currentWeight += be.getGewicht();
+                toRemove.add(be);
             }
         }
 
+        neueLadung.removeAll(toRemove);
         return neueLadung;
     }
+
 
     public int getLadungGewicht() {
         int gewicht = 0;

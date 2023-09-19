@@ -2,6 +2,7 @@ package com.masco;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -42,14 +43,17 @@ public class Tour {
 
     @Override
     public String toString() {
-        return "Tour{" + "startZeit=" + startZeit + ", lkw=" + lkw + ", fahrer=" + fahrer + '}';
+        LocalDateTime startZeit = getStartZeit();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
+        String datum = startZeit.format(formatter);
+        return "Tour " + getLkw().getKennzeichen() + " am " + datum;
     }
 
     public int[] holeEmpfaenger() {
         int[] empfaenger;
 
         ArrayList<Integer> temp = new ArrayList<Integer>();
-        for (BE cur : lkw.getBes()) {
+        for (BE cur : getLkw().getBes()) {
             if (temp.contains(cur.getNummer())) {
                  break;
             }
