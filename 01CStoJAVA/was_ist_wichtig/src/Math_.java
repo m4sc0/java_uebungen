@@ -1,5 +1,9 @@
 public class Math_ {
     public static void main(String[] args) {
+        Testing();
+    }
+
+    public static void Testing() {
         int zahl = 15;
         double quadrat = Math.pow(zahl, zahl);
         double wurzel = Math.sqrt(zahl);
