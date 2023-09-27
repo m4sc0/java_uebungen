@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.masco.rechner.HelloController">
+  <children>
+    <Text layoutX="69.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zahl1:">
+      <font>
+        <Font size="16.0" />
+      </font>
+    </Text>
+    <Text layoutX="69.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zahl2:">
+      <font>
+        <Font size="16.0" />
+      </font>
+    </Text>
+    <TextField fx:id="txtZahl1" layoutX="141.0" layoutY="46.0" prefHeight="25.0" prefWidth="252.0" />
+    <TextField fx:id="txtZahl2" layoutX="141.0" layoutY="91.0" prefHeight="25.0" prefWidth="252.0" />
+    <Button fx:id="btnMin" layoutX="141.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonMin" text="Minus" />
+    <Button fx:id="btnPL" layoutX="64.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonPlus" text="Plus" />
+    <Button fx:id="btnMal" layoutX="213.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonMal" text="Mal" />
+    <Button fx:id="btnDivi" layoutX="269.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonGeteilt" text="Geteilt" />
+    <Button fx:id="btnPoten" layoutX="342.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonPoten" text="Potenzieren" />
+    <Button fx:id="btnModu" layoutX="435.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonModulo" text="Modulo" />
+    <Button fx:id="btnGGT" layoutX="515.0" layoutY="138.0" mnemonicParsing="false" onAction="#onButtonGgt" text="GGT" />
+    <Text layoutX="62.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ergebnis">
+      <font>
+        <Font size="16.0" />
+      </font>
+    </Text>
+    <TextField fx:id="txtErg" layoutX="169.0" layoutY="177.0" prefHeight="25.0" prefWidth="252.0" />
+      <ListView fx:id="lstHistorie" layoutX="18.0" layoutY="266.0" prefHeight="200.0" prefWidth="246.0" />
+      <Button layoutX="18.0" layoutY="233.0" mnemonicParsing="false" onAction="#onListClear" text="Clear list" />
+      <Button layoutX="85.0" layoutY="233.0" mnemonicParsing="false" onAction="#onDeleteEntry" text="Delete Entry" />
+      <TextField fx:id="txtOutput" layoutX="421.0" layoutY="441.0" prefHeight="25.0" prefWidth="206.0" />
+      <Button layoutX="356.0" layoutY="441.0" mnemonicParsing="false" onAction="#onCopyToField" text="Copy" />
+      <ChoiceBox fx:id="cbHistorie" layoutX="476.0" layoutY="258.0" prefWidth="150.0" />
+      
+
+
+  </children>
+</AnchorPane>
