@@ -21,27 +21,7 @@ public class Katze extends Haustier {
         return this.getName().equals(tier.getName());
     }
 
-    public void sag(int i) {
-        switch (i) {
-            case 0:
-                sag("Miau");
-                break;
-            case 1:
-                sag("Mimi");
-                break;
-            default:
-                sag("Kann ich nicht");
-                break;
-        }
-    }
 
-    public void sag() {
-        sag(0);
-    }
-
-    public void sag(String text) {
-        System.out.println(text);
-    }
 
     public String toString() {
         return ("Katze[" + getName() + "," + getGeburtstag() + "]");

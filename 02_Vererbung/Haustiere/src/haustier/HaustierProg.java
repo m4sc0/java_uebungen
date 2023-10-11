@@ -36,24 +36,30 @@ public class HaustierProg {
         Kuh luise = new Kuh("Luise", LocalDate.of(2007, 7, 16), 0.0);
         Kuh kuhClone = new Kuh(luise);
         Katze samClone = new Katze(sam);
+        Henne berta = new Henne("Berta", LocalDate.of(2015, 1, 1), 'B');
 
         System.out.println(garfield + " liebt " + mimi);
-/*
 
-        Haustier tiere[] = {garfield, mimi, luise, sam, kuhClone};
+        Haustier[] tiere = {garfield, mimi, luise, sam, kuhClone, henriette, berta};
         for (int i = 0; i < tiere.length; i++) {
             String name = tiere[i].getName();
             int alter = tiere[i].getAlter();
-            int milch = tiere[i].getMilchmenge();
-            System.out.print(tiere[i].toString() + ": ");
+            double milch = 0;
+            if (tiere[i] instanceof Kuh) {
+                milch = ((Kuh) tiere[i]).getMilchmenge();
+                System.out.println(tiere[i].toString() + ": " + alter + ", " + milch);
+                continue;
+            }
+            System.out.println(tiere[i].toString() + ": " + alter);
         }
 
-        garfield.sag();  garfield.sag("Lasagne"); garfield.sag(0); 
+        garfield.sag();  garfield.sag("Lasagne"); garfield.sag(0);
         mimi.sag();      mimi.sag("Gras");        mimi.sag(0);
-        for (int i = 0; i < tiere.length; i++) {
-            tiere[i].sag(0);
-            tiere[i].sag();
+        for (Haustier haustier : tiere) {
+            haustier.sag(0);
+            haustier.sag();
         }
+/*
 */
     }
 }
