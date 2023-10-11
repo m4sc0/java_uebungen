@@ -13,6 +13,7 @@ public class Henne extends Haustier{
 
     public Henne(Henne alt) {
         super(alt.getName(), alt.getGeburtstag());
+        setGueteKlasse(alt.getGueteKlasse());
     }
 
     public Character getGueteKlasse() {
@@ -25,5 +26,10 @@ public class Henne extends Haustier{
 
     public boolean istPowerHenne() {
         return getGueteKlasse().equals('A');
+    }
+
+    @Override
+    public String toString() {
+        return ("Henne[" + getName() + "," + getGeburtstag() + "," + getGueteKlasse() + "]");
     }
 }
