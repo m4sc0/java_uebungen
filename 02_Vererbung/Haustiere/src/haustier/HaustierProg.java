@@ -44,13 +44,12 @@ public class HaustierProg {
         for (int i = 0; i < tiere.length; i++) {
             String name = tiere[i].getName();
             int alter = tiere[i].getAlter();
-            double milch = 0;
-            if (tiere[i] instanceof Kuh) {
-                milch = ((Kuh) tiere[i]).getMilchmenge();
-                System.out.println(tiere[i].toString() + ": " + alter + ", " + milch);
-                continue;
+            if (tiere[i] instanceof Kuh k) {
+                System.out.println(k.getMilchmenge());
             }
-            System.out.println(tiere[i].toString() + ": " + alter);
+
+            tiere[i].sag();
+            System.out.println("-------------------");
         }
 
         garfield.sag();  garfield.sag("Lasagne"); garfield.sag(0);
@@ -59,7 +58,5 @@ public class HaustierProg {
             haustier.sag(0);
             haustier.sag();
         }
-/*
-*/
     }
 }

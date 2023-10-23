@@ -32,4 +32,9 @@ public class Henne extends Haustier{
     public String toString() {
         return ("Henne[" + getName() + "," + getGeburtstag() + "," + getGueteKlasse() + "]");
     }
+
+    @Override
+    public void sag(int i) {
+        System.out.println("ich schreie gerne weil ich ein hs bin");
+    }
 }

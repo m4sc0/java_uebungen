@@ -23,6 +23,20 @@ public class Kuh extends Haustier{
         this.milchmenge = milchmenge;
     }
 
+    public void sag(int i) {
+        switch (i) {
+            case 0:
+                sag("Miau");
+                break;
+            case 1:
+                sag("Mimi");
+                break;
+            default:
+                sag("Kann ich nicht");
+                break;
+        }
+    }
+
     @Override
     public String toString() {
         return ("Kuh[" + getName() + "," + getGeburtstag() + "," + getMilchmenge() + "]");

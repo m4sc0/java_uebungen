@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
-public class Haustier {
+public abstract class Haustier {
     private String name;
     private LocalDate geburtstag;
 
@@ -58,19 +58,21 @@ public class Haustier {
         return (int) alterInTagen + 1;
     }
 
-    public void sag(int i) {
-        switch (i) {
-            case 0:
-                sag("Miau");
-                break;
-            case 1:
-                sag("Mimi");
-                break;
-            default:
-                sag("Kann ich nicht");
-                break;
-        }
-    }
+//    public void sag(int i) {
+//        switch (i) {
+//            case 0:
+//                sag("Miau");
+//                break;
+//            case 1:
+//                sag("Mimi");
+//                break;
+//            default:
+//                sag("Kann ich nicht");
+//                break;
+//        }
+//    }
+
+    public abstract void sag(int i);
 
     public void sag() {
         sag(0);
