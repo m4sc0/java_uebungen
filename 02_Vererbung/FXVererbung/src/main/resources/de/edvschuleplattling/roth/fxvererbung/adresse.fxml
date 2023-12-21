@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.TextField?>
+
+<fx:root type="Pane" prefHeight="74.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutY="6.0" text="Straße" />
+      <Label layoutX="370.0" layoutY="6.0" text="HausNr" />
+      <Label layoutY="49.0" text="PLZ" />
+      <Label layoutX="171.0" layoutY="49.0" text="Stadt" />
+      <TextField fx:id="txtStrasse" layoutX="47.0" layoutY="2.0" prefHeight="25.0" prefWidth="209.0" />
+      <TextField fx:id="txtHausnr" layoutX="423.0" layoutY="2.0" prefHeight="25.0" prefWidth="55.0" />
+      <TextField fx:id="txtPlz" layoutX="47.0" layoutY="45.0" prefHeight="25.0" prefWidth="95.0" />
+      <TextField fx:id="txtStadt" layoutX="214.0" layoutY="45.0" prefHeight="25.0" prefWidth="264.0" />
+   </children>
+</fx:root>
