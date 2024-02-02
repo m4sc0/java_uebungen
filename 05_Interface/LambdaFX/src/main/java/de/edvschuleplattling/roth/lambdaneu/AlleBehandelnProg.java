@@ -9,6 +9,18 @@ public class AlleBehandelnProg {
         namen.add("Maier");
         namen.add("Und I");
 
+        namen.wandleUm(s -> s.toUpperCase());
+//        namen.wandleUm(s -> {
+//            if (s.length() < 20) {
+//                for (int i = 0; i < 20 - s.length(); i++) {
+//                    s = s + " ";
+//                }
+//            } else if (s.length > 20) {
+//                s = s.substring(0, 20);
+//            }
+//            return s;
+//        });
+
         for (String name : namen) {
             System.out.println(name);
         }

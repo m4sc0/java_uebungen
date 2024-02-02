@@ -6,7 +6,7 @@ import java.io.FilenameFilter;
 public class ListProg {
     public static void main(String[] args) {
         File dir = new File(".");
-        String[] files = dir.list(new HiddenFilter());
+        String[] files = dir.list((f, name) -> name.startsWith("."));
         System.out.println("----");
         for (String file : files) {
             System.out.println(file);

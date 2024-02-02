@@ -9,7 +9,7 @@ public class SortProg {
         String[] namen = {"Meier", "Huber", "UndI"};
         Person[] personen = {new Person(3, "Meier"), new Person(4, "Huber"), new Person(1, "UndI")};
         Arrays.sort(namen);
-        Arrays.sort(personen,new NamenComparator());
+        Arrays.sort(personen, (o1, o2) -> o1.getId() - o2.getId());
 
 
 
