@@ -1,5 +1,5 @@
 package de.edvschuleplattling.roth.staatundflaechen;
 
-public interface Flaechenlastig {
+public interface Flaeche {
     double getFlaeche();
 }
