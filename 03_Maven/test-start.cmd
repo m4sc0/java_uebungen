@@ -1,0 +1,1 @@
+java -jar maven-test-1.0-SNAPSHOT.jar
