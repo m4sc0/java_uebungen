@@ -7,10 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Inheritance
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @ToString
 public abstract class Spieler {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Id
     private int nr;
     private String name;

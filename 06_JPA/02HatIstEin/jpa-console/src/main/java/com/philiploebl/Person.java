@@ -1,6 +1,7 @@
 package com.philiploebl;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

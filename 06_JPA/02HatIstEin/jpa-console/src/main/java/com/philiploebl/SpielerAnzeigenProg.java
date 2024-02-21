@@ -13,7 +13,7 @@ public class SpielerAnzeigenProg {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin(); // Schreibzugriffe müssen innerhalb einer Transaktion erfolgen
 
-        Spieler spieler = em.find(Spieler.class, 1);
+        Spieler spieler = em.find(Spieler.class, 4);
         System.out.println(spieler);
 
         em.getTransaction().commit();
