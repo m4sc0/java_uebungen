@@ -10,7 +10,7 @@ public class SpielAendernProg {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        Spiel s = new Spiel(0, "Sims", 0);
+        Spiel s = new Spiel("Sims", 0, new SpielArt());
         em.persist(s);
 
         em.getTransaction().commit();
